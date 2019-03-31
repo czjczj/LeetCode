@@ -7,7 +7,7 @@ package DFS;
 public class N皇后 {
 	static int cnt = 0;
 	public static void main(String[] args) {
-		int n = 4;
+		int n = 12;
 		int[][] map = new int[n][n];
 		dfs(0,map);
 		System.out.println(cnt);
