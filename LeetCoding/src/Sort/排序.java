@@ -7,13 +7,53 @@ package Sort;
 public class 排序 {
 	public static void main(String[] args) {
 		int[] a = {5,3,2,12,4};
-		int[] res = bubbleSort(a);
+		int alen = a.length;
+//		int[] res = bubbleSort(a);
 //		int[] res = insertSort(a);
-		quickSort(a,0,a.length-1);
+//		quickSort(a,0,a.length-1);
 //		int[] res = heapSort(a);
+		mergeSort(0,a.length-1,a,new int[alen]);
+		for (int i = 0; i < a.length; i++) {
+			System.out.print(a[i] + " ");
+		}
+	}
+	private static void mergeSort(int l, int r, int[] a, int[] res) {
+		if(l>=r)
+			return;
+		int mid = (l+r)/2;
+		mergeSort(l, mid, a, res);
+		mergeSort(mid+1,r, a, res);
+		merge(l,mid+1,r,a,res);
+	}
+	//res是一个零时数组
+	private static void merge(int l, int mid, int r, int[] a, int[] res) {
+		int i = l;
+		int j = mid;
+		int k = 0;
+		while(i<mid && j<=r) {
+			if(a[i]<a[j]) {
+				res[k++] = a[i];
+				i++;
+			}else {
+				res[k++] = a[j];
+				j++;
+			}
+		}
+		if(i==mid) {
+			while(j<=r) {
+				res[k++] = a[j];
+				j++;
+			}
+		}
+		if(j>r) {
+			while(i<mid) {
+				res[k++] = a[i];
+				i++;
+			}
+		}
 		
-		for (int i = 0; i < res.length; i++) {
-			System.out.print(res[i] + " ");
+		for (int m = 0; m < k; m++) {
+			a[l+m] = res[m];
 		}
 	}
 
