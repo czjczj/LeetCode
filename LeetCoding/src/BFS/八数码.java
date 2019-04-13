@@ -13,8 +13,9 @@ public class 八数码 {
 	static int cnt = 0;
 	public static void main(String[] args) {
 		int n = 3;
-		String s = "235106487";
-		String t = "123405678";
+		String s = "203184765";
+		String t = "283164075";
+//		System.out.println(get(s,t,n));
 		
 		Queue<State> q = new LinkedList<>();
 		boolean[] isVis = new boolean[1000000000];
