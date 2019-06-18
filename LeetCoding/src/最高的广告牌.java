@@ -12,7 +12,6 @@ public class 最高的广告牌 {
 		System.out.println(tallestBillboard2(b));
 	}
 	
-	
 	static int Max = 0;
 	static int sum = 0;
 	public static int tallestBillboard(int[] a) {
